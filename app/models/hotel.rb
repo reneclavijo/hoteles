@@ -1,5 +1,4 @@
 class Hotel < ApplicationRecord
-  belongs_to :ciudad
-
-  has_many :habitaciones
+    has_many :habitaciones  # un hotel tiene muchas habitaciones
+    belongs_to :ciudad      # un hotel le pertenece a una ciudad
 end

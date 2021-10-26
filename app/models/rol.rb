@@ -1,3 +1,3 @@
 class Rol < ApplicationRecord
-    has_many :usuarios
+    has_many :usuarios # tiene muchos usuarios
 end
