@@ -9,6 +9,11 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
     inflect.irregular 'ciudad', 'ciudades'
+    inflect.irregular 'rol',    'roles'
+    inflect.irregular 'hotel',  'hoteles'
+    inflect.irregular 'habitacion', 'habitaciones'
+    inflect.irregular 'reserva',    'reservas'
+    inflect.irregular 'usuario',    'usuarios'
 end
 
 # These inflection rules are supported but not enabled by default:
