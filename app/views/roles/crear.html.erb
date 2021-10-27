@@ -1,4 +1,5 @@
-<h1>Mi primera vista</h1>
+<!-- 
+
 <h2>Aquí crear el formulario para los</h2>
 <h3>ROLES</h3>
 
@@ -7,3 +8,14 @@
 
 <p> Etiqueta ruby SIN igual </p>
 <% @mi_nombre %>
+
+-->
+
+<h1>Crear un nuevo rol</h1>
+
+<%= form_with(model: @rol) do |formulario| %>
+    <%= formulario.label        :rol %>
+    <%= formulario.text_field   :rol %>
+
+    <%= formulario.submit "Crear" %>
+<% end %>
