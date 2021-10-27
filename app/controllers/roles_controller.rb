@@ -1,6 +1,11 @@
 # Lógica | Reciben peticiones y devuelven vistas
 class RolesController < ApplicationController
 
+    # GET /roles
+    def listar
+        @roles = Rol.all
+    end
+
     # GET /roles/nuevo
     def crear
         # MOSTRAR formulario para guardar roles nuevos
@@ -15,7 +20,7 @@ class RolesController < ApplicationController
         # asignando los datos a un nuevo rol
         @nuevo_rol = Rol.new(datos_rol)
         if @nuevo_rol.save
-            # por verdad mostrar algo redirect_to
+            redirect_to roles_path # => /roles
         else
             # tomar prestada una vista render
         end
