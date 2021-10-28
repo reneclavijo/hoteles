@@ -1,9 +1,15 @@
 <h2>Registro de una ciudad</h2>
 
-<form class="formulario">
-    <label>Nombre</label>
-    <input type="text">
+<%= form_with(model: @ciudad) do |formulario| %>
+    
+    <!-- <label id="nombre" >Nombre</label> -->
+    <%= formulario.label :nombre %>
+    <!-- <input type="text" id="nombre" name="nombre"> -->
+    <%= formulario.text_field :nombre %>
 
-    <button>Cancelar</button>
-    <input type="submit" value="Registrar">
-</form>
+    <button>Cancelar</button> <!-- link_to -->
+
+    <!-- <input type="submit" value="Registrar"> -->
+    <%= formulario.submit 'Registrar' %>
+
+<% end %>
