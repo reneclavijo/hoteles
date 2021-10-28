@@ -82,14 +82,14 @@ Cosas deseables del software serían las siguientes:
         get 'ciudades/nuevo', to: 'ciudades#mostrar_formulario_crear'
         ```
   
-    - [ ] Agregar la lógica para guardar los datos en la tabla de ciudades
+    - [x] Agregar la lógica para guardar los datos en la tabla de ciudades
 
       - [x] Entender el funcionamiento del formulario
       - [x] Configurar el formulario para que envíe los datos donde tienen que ir (usar *form_with* "ayudante" de Rails)
       - [x] Construir el formulario *form_with* en base a un modelo
-      - [ ] Definir un método que reciba los datos y los guarde (Utilizar el modelo Ciudad según lo aprendido)
-      - [ ] Agregar la ruta para permitir el acceso de los datos (utilizar un *POST*)
-      - [ ] Mostrar algo de confirmación
+      - [x] Agregar la ruta para permitir el acceso de los datos (utilizar un *POST*)
+      - [x] Definir un método que reciba los datos y los guarde (Utilizar el modelo Ciudad según lo aprendido)
+      - [x] Mostrar algo de confirmación
 
    1.2. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
 
