@@ -145,7 +145,43 @@ Cosas deseables del software serían las siguientes:
         - [x] Configurar la ruta GET /ciudades
         - [x] Definir el método `listar` en el controlador de ciudades
         - [x] Crear un archivo nuevo llamado `listar.html.erb` en la carpeta de `app/views/ciudades`
-        - [ ] Diseñar la lógica para mostrar todas las ciudades en la vista
+        - [x] Diseñar la lógica para mostrar todas las ciudades en la vista
+        - [X] Consultar todos los registro de la tabla `ciudades`
+
+        ```ruby
+        # app/controllers/ciudades_controller.rb
+        def listar
+            @lista_ciudades = Ciudad.all
+        end
+        ```
+
+        - [x] Recorrer todos los registros y mostrarlos en etiquetas HTML
+
+        ```html
+        <h1>Lista de ciudades registradas</h1>
+
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+            <% @lista_ciudades.each do |c| %>
+                <tr>
+                    <td>
+                        <%= c.id %>
+                    </td>            
+                    <td>
+                        <%= c.nombre %>
+                    </td>
+                    <td>
+                        <span>Editar</span>
+                        <span>Eliminar</span>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+        ```
 
     - [ ] Validar que no se puedan crear ciudades SIN nombre y tampoco repetidas
 

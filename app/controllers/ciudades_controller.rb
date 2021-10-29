@@ -1,6 +1,7 @@
 class CiudadesController < ApplicationController
 
     def listar
+        @lista_ciudades = Ciudad.all
     end
 
     def mostrar_formulario_crear
