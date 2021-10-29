@@ -300,14 +300,30 @@ Cosas deseables del software serían las siguientes:
 
         # segunda forma de actualizar un dato
         ciudad = Ciudad.find_by(id: 16)         # 1. Buscar el registro por ID
-        ciudad.update(nombre: 'seul')           # 2. Actualizar el registro con el método .update
+        ciudad.update(nombre: 'Seul')           # 2. Actualizar el registro con el método .update
         ```
 
-      - [ ] Habilitar la ruta para mostrar el formulario para editar una ciudad
+      - [x] Habilitar la ruta para mostrar el formulario para editar una ciudad
 
-      - [ ] Definir el método en el controlador de ciudades que se haga cargo de la vista de editar
+        ```ruby
+        # config/routes.rb
+         get   'ciudades/:id/editar',  to: 'ciudades#editar'
+        ```
 
-      - [ ] Crear el archivo `editar.html.erb` que muestre el formulario para editar el nombre de la ciudad
+      - [x] Definir el método en el controlador de ciudades que se haga cargo de la vista de editar
+
+        ```ruby
+        # app/controllers/ciudades_controller.rb
+        def editar
+            
+        end
+        ```
+
+      - [x] Crear el archivo `editar.html.erb` que muestre el formulario para editar el nombre de la ciudad
+
+      - [ ] Entender cómo enviar variables por la URL (para qué sirve el ciudades/:id/editar)
+
+      - [ ] Recuperar la variable desde la URL
 
       - [ ] Definir la lógica para guardar los datos actualizados
 

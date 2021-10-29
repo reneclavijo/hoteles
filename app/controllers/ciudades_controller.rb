@@ -8,6 +8,10 @@ class CiudadesController < ApplicationController
         @ciudad = Ciudad.new
     end
 
+    def editar
+        
+    end
+
     def guardar
         # extraer los datos del formulario 📦
         datos_formulario = params.require(:ciudad).permit(:nombre) # Hash
