@@ -321,11 +321,36 @@ Cosas deseables del software serían las siguientes:
 
       - [x] Crear el archivo `editar.html.erb` que muestre el formulario para editar el nombre de la ciudad
 
-      - [ ] Entender cómo enviar variables por la URL (para qué sirve el ciudades/:id/editar)
+      - [x] Entender cómo enviar variables por la URL (para qué sirve el ciudades/:id/editar) y recibirlas
 
-      - [ ] Recuperar la variable desde la URL
+        ```ruby
+        def editar
+            # recuperamos el :id de la URL 📦 
+            id = params[:id]
+            puts "#{id}".center(50, "-")
+        end
+        ```
 
-      - [ ] Definir la lógica para guardar los datos actualizados
+      - [ ] Definir la lógica para mostrar el formulario con datos cargados de la BD
+
+        - [x] Obtener el :id que llega desde la URL
+        - [x] Buscar la ciudad en la base de datos
+
+            ```ruby
+            def editar
+                # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
+                @ciudad = Ciudad.find_by(id: params[:id])
+            end
+            ```
+
+        - [x] Mostrar la información de la búsqueda
+
+            ```html
+            <h1>Editar</h1>
+
+            <%= @ciudad.id %>
+            <%= @ciudad.nombre %>
+            ```
 
     - [ ] Eliminar una ciudad
 

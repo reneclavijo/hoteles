@@ -9,7 +9,8 @@ class CiudadesController < ApplicationController
     end
 
     def editar
-        
+        # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
+        @ciudad = Ciudad.find_by(id: params[:id])
     end
 
     def guardar
