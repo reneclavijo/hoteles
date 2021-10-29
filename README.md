@@ -352,6 +352,34 @@ Cosas deseables del software serían las siguientes:
             <%= @ciudad.nombre %>
             ```
 
+        - [x] Mostrar la información dentro de un formulario
+
+            ```ruby
+            # config/routes.rb
+              patch 'ciudades/:id',   to: 'ciudades#actualizar', as: 'ciudad'
+
+            ```
+
+            ```html
+            <!-- app/views/ciudades/editar.html.erb -->
+            <h1>Editar</h1>
+
+            <%= form_with(model: @ciudad) do |formulario| %>
+
+                <%= formulario.label        :nombre %>
+                <%= formulario.text_field   :nombre %>
+                <% if @ciudad.errors[:nombre].any? %>
+                    <div>
+                        <%= @ciudad.errors[:nombre].first %>
+                    </div>
+                <% end %>
+
+                <button>Cancelar</button>
+                
+                <%= formulario.submit "Actualizar" %>
+            <% end %>
+            ```
+
     - [ ] Eliminar una ciudad
 
    1.2. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
