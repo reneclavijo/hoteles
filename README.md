@@ -187,9 +187,18 @@ Cosas deseables del software serían las siguientes:
             </table>
             ```
 
-    - [ ] Validar que no se puedan crear ciudades SIN nombre y tampoco repetidas
+    - [x] Validar que no se puedan crear ciudades SIN nombre y tampoco repetidas
 
         - [x] Agregar las validaciones necesarias al modelo
+
+            ```ruby
+            class Ciudad < ApplicationRecord
+                has_many :hoteles # una ciudad tiene muchos hoteles
+
+                validates :nombre, presence: true
+                validates :nombre, uniqueness: true
+            end
+            ```
 
         - [x] Asegurarnos de tener el método `.save` en un `if` en el controlador para pedirnos prestado una vista (con `render`) en caso de fallar
 
@@ -235,7 +244,35 @@ Cosas deseables del software serían las siguientes:
             <% end %>
             ```
 
-    - [ ] Redireccionar y mostrar errores en el formulario
+    - [x] Redirigir a la vista de `listar` cuando el formulario sea exitoso
+
+        - [x] Agregar el método `redirect_to` en el controlador
+
+            ```ruby
+            # app/controllers/ciudades_controller.rb
+            def guardar
+                # extraer los datos del formulario 📦
+                datos_formulario = params.require(:ciudad).permit(:nombre) # Hash
+                # datos_formulario = {nombre: "Tokio"}
+                # Guardando los datos 💾
+                @ciudad = Ciudad.new
+                @ciudad.nombre = datos_formulario[:nombre]
+                if @ciudad.save
+                    # redirect_to "/ciudades"
+                    redirect_to ciudades_path
+                else
+                    render :mostrar_formulario_crear
+                end
+            end
+            ```
+
+        - [x] Agregar el alias a la ruta de ciudades
+
+            ```ruby
+            # config/routes.rb
+             # Ciudades
+            get   'ciudades',       to: 'ciudades#listar', as: 'ciudades'
+            ```
 
     - [ ] Mostrar un formulario para editar el nombre de una ciudad
 

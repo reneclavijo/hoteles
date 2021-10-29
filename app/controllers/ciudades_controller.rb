@@ -16,8 +16,8 @@ class CiudadesController < ApplicationController
         @ciudad = Ciudad.new
         @ciudad.nombre = datos_formulario[:nombre]
         if @ciudad.save
-            # Mostrar la confirmación ✅
-            puts "✅GUARDARDO✅".center(20, "*")
+            # redirect_to "/ciudades"
+            redirect_to ciudades_path
         else
             render :mostrar_formulario_crear
         end
