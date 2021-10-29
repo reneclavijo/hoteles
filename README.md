@@ -288,10 +288,27 @@ Cosas deseables del software serían las siguientes:
         get   'ciudades/nuevo', to: 'ciudades#mostrar_formulario_crear',  as: 'nueva_ciudad'
         ```
 
-      - [ ] Convertir el texto "Editar" en un link para mostrar la vista de editar
-      - [ ] Habilitar la ruta para Editar una ciudad
+      - [x] Convertir el texto "Editar" en un link para mostrar la vista de editar
+
+      - [x] Entender cómo funciona una actualización de datos
+
+        ```ruby
+        # primera forma de actualizar un dato
+        ciudad = Ciudad.find_by(id: 18)         # 1. Buscar el registro por ID
+        ciudad.nombre = "arequipa"              # 2. Cambiar el dato de los campos que me interesa
+        ciudad.save                             # 3. Guardar los cambios en la BD
+
+        # segunda forma de actualizar un dato
+        ciudad = Ciudad.find_by(id: 16)         # 1. Buscar el registro por ID
+        ciudad.update(nombre: 'seul')           # 2. Actualizar el registro con el método .update
+        ```
+
+      - [ ] Habilitar la ruta para mostrar el formulario para editar una ciudad
+
       - [ ] Definir el método en el controlador de ciudades que se haga cargo de la vista de editar
+
       - [ ] Crear el archivo `editar.html.erb` que muestre el formulario para editar el nombre de la ciudad
+
       - [ ] Definir la lógica para guardar los datos actualizados
 
     - [ ] Eliminar una ciudad
