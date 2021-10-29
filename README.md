@@ -276,6 +276,24 @@ Cosas deseables del software serían las siguientes:
 
     - [ ] Mostrar un formulario para editar el nombre de una ciudad
 
+      - [x] Experimentar con la etiqueta `link_to` que me permite generar etiquetas `<a>`
+
+        ```html
+        <!-- app/views/ciudades/listar.html.erb -->
+        <%= link_to "Crear nueva ciudad", nueva_ciudad_path %>
+        ```
+
+        ```ruby
+        # config/routes.rb
+        get   'ciudades/nuevo', to: 'ciudades#mostrar_formulario_crear',  as: 'nueva_ciudad'
+        ```
+
+      - [ ] Convertir el texto "Editar" en un link para mostrar la vista de editar
+      - [ ] Habilitar la ruta para Editar una ciudad
+      - [ ] Definir el método en el controlador de ciudades que se haga cargo de la vista de editar
+      - [ ] Crear el archivo `editar.html.erb` que muestre el formulario para editar el nombre de la ciudad
+      - [ ] Definir la lógica para guardar los datos actualizados
+
     - [ ] Eliminar una ciudad
 
    1.2. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
