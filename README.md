@@ -140,50 +140,100 @@ Cosas deseables del software serían las siguientes:
         post  'ciudades',       to: 'ciudades#guardar'
         ```
 
-    - [ ] Listar todas las ciudades en una nueva vista
+    - [x] Listar todas las ciudades en una nueva vista
 
         - [x] Configurar la ruta GET /ciudades
+
         - [x] Definir el método `listar` en el controlador de ciudades
+
         - [x] Crear un archivo nuevo llamado `listar.html.erb` en la carpeta de `app/views/ciudades`
+
         - [x] Diseñar la lógica para mostrar todas las ciudades en la vista
+
         - [X] Consultar todos los registro de la tabla `ciudades`
 
-        ```ruby
-        # app/controllers/ciudades_controller.rb
-        def listar
-            @lista_ciudades = Ciudad.all
-        end
-        ```
+            ```ruby
+            # app/controllers/ciudades_controller.rb
+            def listar
+                @lista_ciudades = Ciudad.all
+            end
+            ```
 
         - [x] Recorrer todos los registros y mostrarlos en etiquetas HTML
 
-        ```html
-        <h1>Lista de ciudades registradas</h1>
+            ```html
+            <h1>Lista de ciudades registradas</h1>
 
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Acciones</th>
-            </tr>
-            <% @lista_ciudades.each do |c| %>
+            <table>
                 <tr>
-                    <td>
-                        <%= c.id %>
-                    </td>            
-                    <td>
-                        <%= c.nombre %>
-                    </td>
-                    <td>
-                        <span>Editar</span>
-                        <span>Eliminar</span>
-                    </td>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
                 </tr>
-            <% end %>
-        </table>
-        ```
+                <% @lista_ciudades.each do |c| %>
+                    <tr>
+                        <td>
+                            <%= c.id %>
+                        </td>            
+                        <td>
+                            <%= c.nombre %>
+                        </td>
+                        <td>
+                            <span>Editar</span>
+                            <span>Eliminar</span>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+            ```
 
     - [ ] Validar que no se puedan crear ciudades SIN nombre y tampoco repetidas
+
+        - [x] Agregar las validaciones necesarias al modelo
+
+        - [x] Asegurarnos de tener el método `.save` en un `if` en el controlador para pedirnos prestado una vista (con `render`) en caso de fallar
+
+            ```ruby
+            def guardar
+                # extraer los datos del formulario 📦
+                datos_formulario = params.require(:ciudad).permit(:nombre) # Hash
+                # datos_formulario = {nombre: "Tokio"}
+                # Guardando los datos 💾
+                @ciudad = Ciudad.new
+                @ciudad.nombre = datos_formulario[:nombre]
+                if @ciudad.save
+                    # Mostrar la confirmación ✅
+                    puts "✅GUARDARDO✅".center(20, "*")
+                else
+                    render :mostrar_formulario_crear
+                end
+            end
+            ```
+
+        - [x] Mostrar los errores (si los hubiera) en la vista
+
+            ```ruby
+            <h2>Registro de una ciudad</h2>
+
+            <%= form_with(model: @ciudad) do |formulario| %>
+                
+                <!-- <label id="nombre" >Nombre</label> -->
+                <%= formulario.label :nombre %>
+                <!-- <input type="text" id="nombre" name="nombre"> -->
+                <%= formulario.text_field :nombre %>
+                <% if @ciudad.errors[:nombre].any? %>
+                    <div>
+                        <%= @ciudad.errors[:nombre].first %>
+                    </div>
+                <% end %>
+
+                <button>Cancelar</button> <!-- link_to -->
+
+                <!-- <input type="submit" value="Registrar"> -->
+                <%= formulario.submit 'Registrar' %>
+
+            <% end %>
+            ```
 
     - [ ] Redireccionar y mostrar errores en el formulario
 

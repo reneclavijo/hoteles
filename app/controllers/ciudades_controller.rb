@@ -15,8 +15,11 @@ class CiudadesController < ApplicationController
         # Guardando los datos 💾
         @ciudad = Ciudad.new
         @ciudad.nombre = datos_formulario[:nombre]
-        @ciudad.save
-        # Mostrar la confirmación ✅
-        puts "✅GUARDARDO✅".center(20, "*")
+        if @ciudad.save
+            # Mostrar la confirmación ✅
+            puts "✅GUARDARDO✅".center(20, "*")
+        else
+            render :mostrar_formulario_crear
+        end
     end
 end
