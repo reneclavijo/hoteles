@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'roles/nuevo',  to: 'roles#crear'
   post 'roles',       to: 'roles#guardar'
 
-  # Ciudades  
+  # Ciudades
+  get   'ciudades',       to: 'ciudades#listar'
   get   'ciudades/nuevo', to: 'ciudades#mostrar_formulario_crear'
   post  'ciudades',       to: 'ciudades#guardar'
 end

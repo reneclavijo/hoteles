@@ -90,6 +90,70 @@ Cosas deseables del software serían las siguientes:
       - [x] Agregar la ruta para permitir el acceso de los datos (utilizar un *POST*)
       - [x] Definir un método que reciba los datos y los guarde (Utilizar el modelo Ciudad según lo aprendido)
       - [x] Mostrar algo de confirmación
+      - [x] Evidencias
+
+        ```html
+        <!-- app/views/ciudades/mostrar_formulario_crear.html.erb -->
+        <h2>Registro de una ciudad</h2>
+
+        <%= form_with(model: @ciudad) do |formulario| %>
+            
+            <!-- <label id="nombre" >Nombre</label> -->
+            <%= formulario.label :nombre %>
+            <!-- <input type="text" id="nombre" name="nombre"> -->
+            <%= formulario.text_field :nombre %>
+
+            <button>Cancelar</button> <!-- link_to -->
+
+            <!-- <input type="submit" value="Registrar"> -->
+            <%= formulario.submit 'Registrar' %>
+
+        <% end %>
+        ```
+
+        ```ruby
+        # app/controller/ciudades_controller.rb
+        class CiudadesController < ApplicationController
+
+            def mostrar_formulario_crear
+                @ciudad = Ciudad.new
+            end
+
+            def guardar
+                # extraer los datos del formulario 📦
+                datos_formulario = params.require(:ciudad).permit(:nombre) # Hash
+                # datos_formulario = {nombre: "Tokio"}
+                # Guardando los datos 💾
+                @ciudad = Ciudad.new
+                @ciudad.nombre = datos_formulario[:nombre]
+                @ciudad.save
+                # Mostrar la confirmación ✅
+                puts "✅GUARDARDO✅".center(20, "*")
+            end
+        end
+        ```
+
+        ```ruby
+        # config/routes.rb
+        # Ciudades  
+        get   'ciudades/nuevo', to: 'ciudades#mostrar_formulario_crear'
+        post  'ciudades',       to: 'ciudades#guardar'
+        ```
+
+    - [ ] Listar todas las ciudades en una nueva vista
+
+        - [x] Configurar la ruta GET /ciudades
+        - [x] Definir el método `listar` en el controlador de ciudades
+        - [x] Crear un archivo nuevo llamado `listar.html.erb` en la carpeta de `app/views/ciudades`
+        - [ ] Diseñar la lógica para mostrar todas las ciudades en la vista
+
+    - [ ] Validar que no se puedan crear ciudades SIN nombre y tampoco repetidas
+
+    - [ ] Redireccionar y mostrar errores en el formulario
+
+    - [ ] Mostrar un formulario para editar el nombre de una ciudad
+
+    - [ ] Eliminar una ciudad
 
    1.2. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
 
