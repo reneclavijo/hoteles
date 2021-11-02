@@ -27,4 +27,15 @@ class CiudadesController < ApplicationController
             render :mostrar_formulario_crear
         end
     end
+
+    def actualizar
+        datos_formulario = params.require(:ciudad).permit(:nombre)
+        @ciudad = Ciudad.find_by(id: params[:id])
+        @ciudad.nombre = datos_formulario[:nombre]
+        if @ciudad.save
+            redirect_to ciudades_path
+        else
+            render :editar
+        end
+    end
 end

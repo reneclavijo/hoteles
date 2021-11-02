@@ -381,23 +381,16 @@ Cosas deseables del software serían las siguientes:
             <% end %>
             ```
 
+    - [x] Solucionar la vista de `ciudades`
 
+    - [ ] Actualizar un registro utilizando el formulario creado anteriormente
 
-
-
-
-
-
-
-
-
-
-
-
-
-    - [ ] Solucionar la vista de `ciudades`
-
-    - [ ] Actualziar un registro utilizando el formulario creado anteriormente
+      - [x] Definir un método en controlador de `ciudades` que se haga cargo de actualizar
+      - [x] Extraer los datos del formulario dentro *params*
+      - [x] Buscar el registro en la base de datos
+      - [x] Asignar los nuevos valores al objeto encontrado
+      - [x] Guardar / Actualizar el nuevo objeto
+      - [x] Redirigir o mostrar la vista prestada `editar`
 
     - [ ] Eliminar una ciudad
 
