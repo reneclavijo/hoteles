@@ -2,24 +2,25 @@ class CiudadesController < ApplicationController
 
     before_action :asignar_ciudad, only: [:editar, :actualizar, :eliminar]
 
+    # GET /ciudades
     def listar
         @lista_ciudades = Ciudad.all
     end
 
+    # GET /ciudades/nuevo
     def mostrar_formulario_crear
         @ciudad = Ciudad.new
     end
 
+    # GET /ciudades/:id/editar
     def editar
     end
 
+    # POST /ciudades
     def guardar
-        # extraer los datos del formulario 📦
-        datos_formulario = params.require(:ciudad).permit(:nombre) # Hash
-        # datos_formulario = {nombre: "Tokio"}
         # Guardando los datos 💾
         @ciudad = Ciudad.new
-        @ciudad.nombre = datos_formulario[:nombre]
+        @ciudad.nombre = params_ciudad[:nombre]
         if @ciudad.save
             # redirect_to "/ciudades"
             redirect_to ciudades_path
@@ -28,9 +29,9 @@ class CiudadesController < ApplicationController
         end
     end
 
+    # PATH /ciudades/:id
     def actualizar
-        datos_formulario = params.require(:ciudad).permit(:nombre)
-        @ciudad.nombre = datos_formulario[:nombre]
+        @ciudad.nombre = params_ciudad[:nombre]
         if @ciudad.save
             redirect_to ciudades_path
         else
@@ -38,6 +39,7 @@ class CiudadesController < ApplicationController
         end
     end
 
+    # DELETE /ciudades/:id
     def eliminar
         @ciudad.destroy
         redirect_to ciudades_path
@@ -45,10 +47,14 @@ class CiudadesController < ApplicationController
 
     private # Todo lo que está abajo 👇👇 es PRIVADO
     
+    # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
     def asignar_ciudad
-        # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
         @ciudad = Ciudad.find_by(id: params[:id])
         puts "ANTES ASIGNAR UNA CIUDAD".center(50, "🚥")
     end
 
+    # extraer los datos del formulario 📦
+    def params_ciudad
+        return params.require(:ciudad).permit(:nombre)
+    end
 end

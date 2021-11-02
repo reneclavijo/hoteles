@@ -457,7 +457,7 @@ Cosas deseables del software serían las siguientes:
           end
           ```
 
-    - [ ] Limpiar controlador de ciudades
+    - [x] Limpiar controlador de ciudades
 
       - [x] Entender qué son son filtros
 
@@ -526,7 +526,7 @@ Cosas deseables del software serían las siguientes:
         end
         ```
 
-      - [ ] Utilizarlos para evitar duplicar código al asignar una ciudad
+      - [X] Utilizarlos para evitar duplicar código al asignar una ciudad
 
         ```ruby
         class CiudadesController < ApplicationController
@@ -582,6 +582,72 @@ Cosas deseables del software serían las siguientes:
                 puts "ANTES ASIGNAR UNA CIUDAD".center(50, "🚥")
             end
 
+        end
+        ```
+
+      - [x] Utilizar un método *params_ciudad* para extraer los datos del formulario en 1 solo lugar
+
+        ```ruby
+        # app/controllers/ciudades_controller.rb
+        class CiudadesController < ApplicationController
+
+            before_action :asignar_ciudad, only: [:editar, :actualizar, :eliminar]
+
+            # GET /ciudades
+            def listar
+                @lista_ciudades = Ciudad.all
+            end
+
+            # GET /ciudades/nuevo
+            def mostrar_formulario_crear
+                @ciudad = Ciudad.new
+            end
+
+            # GET /ciudades/:id/editar
+            def editar
+            end
+
+            # POST /ciudades
+            def guardar
+                # Guardando los datos 💾
+                @ciudad = Ciudad.new
+                @ciudad.nombre = params_ciudad[:nombre]
+                if @ciudad.save
+                    # redirect_to "/ciudades"
+                    redirect_to ciudades_path
+                else
+                    render :mostrar_formulario_crear
+                end
+            end
+
+            # PATH /ciudades/:id
+            def actualizar
+                @ciudad.nombre = params_ciudad[:nombre]
+                if @ciudad.save
+                    redirect_to ciudades_path
+                else
+                    render :editar
+                end
+            end
+
+            # DELETE /ciudades/:id
+            def eliminar
+                @ciudad.destroy
+                redirect_to ciudades_path
+            end
+
+            private # Todo lo que está abajo 👇👇 es PRIVADO
+            
+            # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
+            def asignar_ciudad
+                @ciudad = Ciudad.find_by(id: params[:id])
+                puts "ANTES ASIGNAR UNA CIUDAD".center(50, "🚥")
+            end
+
+            # extraer los datos del formulario 📦
+            def params_ciudad
+                return params.require(:ciudad).permit(:nombre)
+            end
         end
         ```
 
