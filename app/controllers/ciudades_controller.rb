@@ -1,5 +1,7 @@
 class CiudadesController < ApplicationController
 
+    before_action :asignar_ciudad, only: [:editar, :actualizar, :eliminar]
+
     def listar
         @lista_ciudades = Ciudad.all
     end
@@ -9,8 +11,6 @@ class CiudadesController < ApplicationController
     end
 
     def editar
-        # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
-        @ciudad = Ciudad.find_by(id: params[:id])
     end
 
     def guardar
@@ -30,7 +30,6 @@ class CiudadesController < ApplicationController
 
     def actualizar
         datos_formulario = params.require(:ciudad).permit(:nombre)
-        @ciudad = Ciudad.find_by(id: params[:id])
         @ciudad.nombre = datos_formulario[:nombre]
         if @ciudad.save
             redirect_to ciudades_path
@@ -40,8 +39,16 @@ class CiudadesController < ApplicationController
     end
 
     def eliminar
-        @ciudad = Ciudad.find_by(id: params[:id])
         @ciudad.destroy
         redirect_to ciudades_path
     end
+
+    private # Todo lo que está abajo 👇👇 es PRIVADO
+    
+    def asignar_ciudad
+        # recuperamos el :id de la URL 📦 y lo buscamos en la base de datos
+        @ciudad = Ciudad.find_by(id: params[:id])
+        puts "ANTES ASIGNAR UNA CIUDAD".center(50, "🚥")
+    end
+
 end
