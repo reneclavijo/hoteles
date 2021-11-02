@@ -383,7 +383,7 @@ Cosas deseables del software serían las siguientes:
 
     - [x] Solucionar la vista de `ciudades`
 
-    - [ ] Actualizar un registro utilizando el formulario creado anteriormente
+    - [x] Actualizar un registro utilizando el formulario creado anteriormente
 
       - [x] Definir un método en controlador de `ciudades` que se haga cargo de actualizar
       - [x] Extraer los datos del formulario dentro *params*
@@ -392,7 +392,70 @@ Cosas deseables del software serían las siguientes:
       - [x] Guardar / Actualizar el nuevo objeto
       - [x] Redirigir o mostrar la vista prestada `editar`
 
+      ```ruby
+      # app/controllers/ciudades_controller.rb
+        def actualizar
+            datos_formulario = params.require(:ciudad).permit(:nombre)
+            @ciudad = Ciudad.find_by(id: params[:id])
+            @ciudad.nombre = datos_formulario[:nombre]
+            if @ciudad.save
+                redirect_to ciudades_path
+            else
+                render :editar
+            end
+        end
+      ```
+
     - [ ] Eliminar una ciudad
+
+      - [x] Entender cómo funciona *eliminar* en Rails
+
+        ```ruby
+        # Forma 1
+        cuidad = Ciudad.find_by(id: 22)
+        ciudad.destroy
+
+        # Forma 2
+        ciudad = Ciudad.destroy_by(id: 19)
+
+        # Forma 3 ⚠ ELIMINAR TODO
+        ciudades_eliminadas = Ciudad.destroy_all
+        ```
+
+    - [x] Definir la ruta DELETE
+
+        ```ruby
+        # config/routes
+        delete  'ciudades/:id',   to: 'ciudades#eliminar'
+        ```
+
+    - [x] Convertir en botón al texto *Eliminar* del archivo `listar.html.erb` de ciudades
+
+        ```ruby
+        # app/views/ciudades/listar.html.erb
+        <%= link_to "Eliminar", ciudad_path(c), method: :delete %>
+        ```
+
+    - [x] Definir el método que se hará cargo en el controlador *ciudades*
+
+        ```ruby
+        # app/controller/ciudades_controller.rb
+        def eliminar
+        
+        end
+        ```
+
+    - [x] Definir la lógica para eliminar el registro
+
+    - [x] Redirigir a *ciudades_path*
+
+        ```ruby
+        def eliminar
+            @ciudad = Ciudad.find_by(id: params[:id])
+            @ciudad.destroy
+            rediret_to ciudades_path
+        end
+        ```
 
    1.2. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
 

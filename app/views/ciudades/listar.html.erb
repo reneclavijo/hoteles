@@ -18,7 +18,7 @@
             </td>
             <td>
                 <%= link_to "Editar", editar_ciudad_path(c) %> <!-- /ciudades/4/editar -->
-                <span>Eliminar</span>
+                <%= link_to "Eliminar", ciudad_path(c), method: :delete %>
             </td>
         </tr>
     <% end %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get   'ciudades/:id/editar',  to: 'ciudades#editar',                    as: 'editar_ciudad'
 
       #  ciudades/25/editar
-  post  'ciudades',       to: 'ciudades#guardar'
-  patch 'ciudades/:id',   to: 'ciudades#actualizar', as: 'ciudad'
+  post    'ciudades',       to: 'ciudades#guardar'
+  patch   'ciudades/:id',   to: 'ciudades#actualizar', as: 'ciudad'
+  delete  'ciudades/:id',   to: 'ciudades#eliminar'
 end

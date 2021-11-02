@@ -38,4 +38,10 @@ class CiudadesController < ApplicationController
             render :editar
         end
     end
+
+    def eliminar
+        @ciudad = Ciudad.find_by(id: params[:id])
+        @ciudad.destroy
+        redirect_to ciudades_path
+    end
 end
