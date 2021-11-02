@@ -274,7 +274,7 @@ Cosas deseables del software serían las siguientes:
             get   'ciudades',       to: 'ciudades#listar', as: 'ciudades'
             ```
 
-    - [ ] Mostrar un formulario para editar el nombre de una ciudad
+    - [x] Mostrar un formulario para editar el nombre de una ciudad
 
       - [x] Experimentar con la etiqueta `link_to` que me permite generar etiquetas `<a>`
 
@@ -331,9 +331,10 @@ Cosas deseables del software serían las siguientes:
         end
         ```
 
-      - [ ] Definir la lógica para mostrar el formulario con datos cargados de la BD
+      - [x] Definir la lógica para mostrar el formulario con datos cargados de la BD
 
         - [x] Obtener el :id que llega desde la URL
+
         - [x] Buscar la ciudad en la base de datos
 
             ```ruby
@@ -379,6 +380,24 @@ Cosas deseables del software serían las siguientes:
                 <%= formulario.submit "Actualizar" %>
             <% end %>
             ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    - [ ] Solucionar la vista de `ciudades`
+
+    - [ ] Actualziar un registro utilizando el formulario creado anteriormente
 
     - [ ] Eliminar una ciudad
 
