@@ -1,0 +1,9 @@
+@import 'ciudades';
+
+@import '~bootstrap/scss/bootstrap';
+
+
+$fondo-gris: #f4f7fa;
+body {
+    background-color: $fondo-gris;
+}

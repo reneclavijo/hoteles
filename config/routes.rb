@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'roles/nuevo',        to: 'roles#nuevo',  as: 'nuevo_rol'
   get 'roles/:id/editar',   to: 'roles#editar', as: 'editar_rol'
 
-  post 'roles',       to: 'roles#guardar'
-  patch 'roles/:id',  to: 'roles#actualizar', as: 'rol'
+  post    'roles',        to: 'roles#guardar'
+  patch   'roles/:id',    to: 'roles#actualizar', as: 'rol'
+  delete  'roles/:id',    to: 'roles#eliminar'
 
   # Ciudades
   get   'ciudades',             to: 'ciudades#listar'                  ,  as: 'ciudades'

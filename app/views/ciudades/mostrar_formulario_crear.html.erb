@@ -1,20 +1,28 @@
-<h2>Registro de una ciudad</h2>
+<div class="card">
+    <div class="card-body">
 
-<%= form_with(model: @ciudad) do |formulario| %>
-    
-    <!-- <label id="nombre" >Nombre</label> -->
-    <%= formulario.label :nombre %>
-    <!-- <input type="text" id="nombre" name="nombre"> -->
-    <%= formulario.text_field :nombre %>
-    <% if @ciudad.errors[:nombre].any? %>
-        <div>
-            <%= @ciudad.errors[:nombre].first %>
-        </div>
-    <% end %>
+        <h3>Registro de una ciudad</h3>
 
-    <button>Cancelar</button> <!-- link_to -->
+        <%= form_with(model: @ciudad) do |formulario| %>
+            
+            <div class="mb-3">
+                <%= formulario.label :nombre, class: 'form-label' %>
+                <!-- <input type="text" id="nombre" name="nombre"> -->
+                <%= formulario.text_field :nombre, class: 'form-control' %>
+                <% if @ciudad.errors[:nombre].any? %>
+                    <div>
+                        <%= @ciudad.errors[:nombre].first %>
+                    </div>
+                <% end %>
+            </div>
 
-    <!-- <input type="submit" value="Registrar"> -->
-    <%= formulario.submit 'Registrar' %>
 
-<% end %>
+            <div class="mb-3 text-end">
+                <%= link_to "Cancelar", ciudades_path, class: "btn btn-light mr-3" %>
+                <%= formulario.submit 'Registrar', class: 'btn btn-primary' %>
+            </div>
+
+        <% end %>
+
+    </div>
+</div>
