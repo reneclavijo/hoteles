@@ -1,0 +1,10 @@
+<h1>Editar un rol</h1>
+
+<%= form_with(model: @rol) do |formulario| %>
+    <%= formulario.label        :rol %> 
+    <%= formulario.text_field   :rol %>
+
+    <%= formulario.submit "Actualizar" %>
+<% end %>
+
+<%= link_to "Volver", roles_path %>
