@@ -1,25 +1,19 @@
+<h5 class="mb-3">
+    <b>Lista de ciudades</b>
+</h5>
 <div class="card">
     <div class="card-body">
 
-        <h3>Lista de ciudades registradas</h3>
-
-        <%= link_to "Crear nueva ciudad", nueva_ciudad_path, class: "btn btn-primary" %>
-
         <table class="table table-hover">
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Acciones</th>
-            </tr>
             <% @lista_ciudades.each do |c| %>
                 <tr>
-                    <td>
+                    <td class="text-center">
                         <%= c.id %>
                     </td>            
-                    <td>
+                    <td class="text-center">
                         <%= c.nombre %>
                     </td>
-                    <td>
+                    <td class="text-center">
                         <%= link_to "Editar", editar_ciudad_path(c), class: "btn btn-warning boton-redondeado" %> <!-- /ciudades/4/editar -->
                         <%= link_to "Eliminar", ciudad_path(c), method: :delete, class: "btn btn-danger" %>
                     </td>

@@ -1,0 +1,42 @@
+<nav class="menu-vertical col-lg-2">
+    <div class="container">
+            <h4 class="titulo">
+                🌴 HCampestre
+            </h4>
+    </div>
+    <div class="container">
+
+        <ul>
+            <li class="separador mb-3 mt-3">
+                <strong>CIUDADES</strong>
+            </li>
+            <li>
+                <%= link_to ciudades_path, class: "opcion" do %>
+                    <i class="bi bi-card-checklist"></i>
+                    Listar
+                <% end %>
+            </li>
+            <li>
+                <%= link_to nueva_ciudad_path, class: "opcion"  do %>
+                    <i class="bi bi-plus-circle"></i>
+                    Crear
+                <% end %>
+            </li>
+            <li class="separador mb-3 mt-3">
+                <strong>ROLES</strong>
+            </li>
+            <li>
+                <%= link_to roles_path, class: "opcion"  do %>
+                    <i class="bi bi-card-checklist"></i>
+                    Listar
+                <% end %>
+            </li>
+            <li>
+                <%= link_to nuevo_rol_path, class: "opcion" do %>
+                    <i class="bi bi-plus-circle"></i>
+                    Crear
+                <% end %>
+            </li>
+        </ul>
+    </div>
+</nav>

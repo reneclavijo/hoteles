@@ -1,9 +1,50 @@
 @import 'ciudades';
 
+// TODAS las variables SCSS van antes del @import
+$primary: #3d4c67;
+$warning: #FFB836;
+$danger: #FA643E;
+
 @import '~bootstrap/scss/bootstrap';
 
+// TODOS los cambios CSS van después del @import
+.btn{
+    border-radius: 2rem;
+}
 
 $fondo-gris: #f4f7fa;
+$fondo-menu: #3d4c67;
+
 body {
     background-color: $fondo-gris;
+}
+
+.menu-vertical{
+    position: fixed;
+    height: 100%;
+    background-color: $fondo-menu;
+    color: white;
+    padding-left: 2rem;  
+
+    .titulo{
+        margin: 2rem 0;
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+
+    li .opcion{
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        text-decoration: none;
+        display: block;
+        color: white;
+        cursor: pointer;
+        
+        &:hover{
+            background-color: white;
+            color: $fondo-menu;
+        }
+    }
 }

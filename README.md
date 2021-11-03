@@ -675,7 +675,9 @@ Cosas deseables del software serían las siguientes:
         ```
 
     - [x] Crear el directorio *css* en la carpeta *app/ javascript*
+
     - [x] Crear el archivo de inicio *main.scss*
+
     - [x] Importar a *app/javascript/application.js* el paquete de bootstrap
 
         ```javascript
@@ -705,7 +707,13 @@ Cosas deseables del software serían las siguientes:
         @import '~bootstrap/scss/bootstrap';
         ```
 
-   1.3. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
+   1.3. Crear un parcial para el menú lateral
+
+    - [x] Crear un archivo que comienza con *_menu_vertical.html.erb*. RECORDAR: debe comenzar con _
+
+    - [x] Llamar el parcial en la vista que quiera
+
+   1.4. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
 
       - [ ] Consultar todas las ciudades de la BD
       - [ ] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
