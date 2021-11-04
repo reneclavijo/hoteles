@@ -25,7 +25,7 @@ class RolesController < ApplicationController
         if @nuevo_rol.save
             redirect_to roles_path # => /roles
         else
-            render :crear
+            render :nuevo
         end
     end
 

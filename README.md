@@ -720,9 +720,95 @@ Cosas deseables del software serían las siguientes:
       - [x] La ruta para mostrar el formulario
       - [x] El controlador con el método
       - [x] La vista para mostrar el formulario
-      - [ ] Consultar todas las ciudades de la BD
-      - [ ] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
-      - [ ] Implementar la lógica que me permita guardar los datos del hotel con una ciudad
+      - [x] Crear un hotel por consola para aprender cómo funciona
+
+        ```ruby
+        # Primera forma de registrar por referencia
+        ciudad = Ciudad.find_by(id: 29) # me trae la ciudad con id 29
+        hotel = Hotel.new
+        hotel.nombre = "Las colinas"
+        hotel.estrellas = 5
+        hotel.ciudad = ciudad
+        hotel.save
+
+        # Segunda forma de registrar por el ID de la ciudad
+        hotel = Hotel.new
+        hotel.nombre = "Los balcones"
+        hotel.estrellas = 2
+        hotel.ciudad_id = 35 # id de la ciudad
+        hotel.save
+        ```
+
+      - [x] Consultar todas las ciudades de la BD
+
+        ```ruby
+        # app/controllers/hoteles_controller.rb
+        # GET /hoteles/nuevo
+        def nuevo
+            @hotel = Hotel.new
+            @ciudades = Ciudad.all
+        end
+        ```
+
+      - [x] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
+
+        ```htm
+        <!-- app/views/hoteles/nuevo.html.erb -->
+        <h1>FORMULARIO para el hotel</h1>
+
+        <%= form_with(model: @hotel) do |formulario| %>
+            <div class="mb-3">
+                <%= formulario.label        :nombre, class: 'form-label' %>
+                <%= formulario.text_field   :nombre, class: 'form-control' %>
+                <% if @hotel.errors[:nombre].any? %>
+                    <div>
+                        <%= @hotel.errors[:nombre].first %>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="mb-3">
+                <%= formulario.label        :estrellas, class: 'form-label' %> 
+                <%= formulario.number_field :estrellas, class: 'form-control' %>
+                <% if @hotel.errors[:estrellas].any? %>
+                    <div>
+                        <%= @hotel.errors[:estrellas].first %>
+                    </div>
+                <% end %>
+            </div>
+
+            <div class="mb-3">
+                <%= formulario.label    :ciudad_id %>
+                <%= formulario.select   :ciudad_id,
+                    options_from_collection_for_select(@ciudades, :id, :nombre, @hotel.ciudad_id),
+                    { include_blank: "Selecciona la ciudad del hotel" },
+                    class: 'form-select' %>
+            </div>
+
+            <%= formulario.submit "Crear" %>
+
+        <% end %>
+        ```
+
+      - [x] Implementar la lógica que me permita guardar los datos del hotel con una ciudad
+
+        ```ruby
+        # app/controllers/hoteles_controller.rb
+        # POST /hoteles
+        def guardar
+            @hotel = Hotel.new(params_hotel)
+            if @hotel.save
+                # redirect_to hoteles_path # listar hoteles
+            else
+                render :nuevo
+            end
+        end
+
+        private
+        def params_hotel
+            return params.require(:hotel).permit(:nombre, :estrellas, :ciudad_id)
+        end
+        ```
 
     1.4.2. Listar los hoteles registrados
 

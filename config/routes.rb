@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   # Hoteles
   get   'hoteles/nuevo', to: 'hoteles#nuevo', as: 'nuevo_hotel'
 
+  post 'hoteles', to: 'hoteles#guardar'
+
 end

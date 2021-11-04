@@ -1,1 +1,34 @@
 <h1>FORMULARIO para el hotel</h1>
+
+<%= form_with(model: @hotel) do |formulario| %>
+    <div class="mb-3">
+        <%= formulario.label        :nombre, class: 'form-label' %>
+        <%= formulario.text_field   :nombre, class: 'form-control' %>
+        <% if @hotel.errors[:nombre].any? %>
+            <div>
+                <%= @hotel.errors[:nombre].first %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="mb-3">
+        <%= formulario.label        :estrellas, class: 'form-label' %> 
+        <%= formulario.number_field :estrellas, class: 'form-control' %>
+        <% if @hotel.errors[:estrellas].any? %>
+            <div>
+                <%= @hotel.errors[:estrellas].first %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="mb-3">
+        <%= formulario.label    :ciudad_id %>
+        <%= formulario.select   :ciudad_id,
+            options_from_collection_for_select(@ciudades, :id, :nombre, @hotel.ciudad_id),
+            { include_blank: "Selecciona la ciudad del hotel" },
+            class: 'form-select' %>
+    </div>
+
+    <%= formulario.submit "Crear" %>
+
+<% end %>
