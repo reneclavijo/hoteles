@@ -822,9 +822,15 @@ Cosas deseables del software serían las siguientes:
       - [x] Tener el método que se hará cargo
       - [x] La vista
       - [x] Agregar al menu de navegación
-      - [ ] Agregar la lógica para mostrar hoteles en la vista
+      - [x] Agregar la lógica para mostrar hoteles en la vista
 
     1.4.3. Actualizar los hoteles registrados
+
+      - [x] Definir la ruta
+      - [x] Definir el método *editar* que se hará cargo
+      - [x] Crear la vista
+      - [ ] Convertir a botón el texto Editar en *listar.html.erb*
+      - [ ] Agregar la lógica para actualizar el hotel
 
     1.4.4. Eliminar un hotel registrado
 

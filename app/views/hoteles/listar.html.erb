@@ -20,7 +20,7 @@
                         <%= h.ciudad.nombre %>
                     </td>
                     <td class="text-center">
-                        Editar
+                        <%= link_to "Editar", editar_hotel_path(h), class: 'btn btn-warning' %>
                         Eliminar
                     </td>
                 </tr>

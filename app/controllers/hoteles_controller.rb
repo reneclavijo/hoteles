@@ -1,5 +1,7 @@
 class HotelesController < ApplicationController
 
+    before_action :asignar_hotel, only: [:editar]
+
     # GET /hoteles
     def listar
         @hoteles = Hotel.all
@@ -9,6 +11,13 @@ class HotelesController < ApplicationController
     def nuevo
         @hotel = Hotel.new
         @ciudades = Ciudad.all
+        @texto = "Crear hotel"
+    end
+
+    # GET /hoteles/:id/editar
+    def editar
+        @ciudades = Ciudad.all
+        @texto = "Actualizar hotel"
     end
 
     # POST /hoteles
@@ -25,6 +34,10 @@ class HotelesController < ApplicationController
     private
     def params_hotel
         return params.require(:hotel).permit(:nombre, :estrellas, :ciudad_id)
+    end
+
+    def asignar_hotel
+        @hotel = Hotel.find_by(id: params[:id])
     end
     
 end
