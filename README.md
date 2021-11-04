@@ -783,6 +783,11 @@ Cosas deseables del software serían las siguientes:
                     options_from_collection_for_select(@ciudades, :id, :nombre, @hotel.ciudad_id),
                     { include_blank: "Selecciona la ciudad del hotel" },
                     class: 'form-select' %>
+                <% if @hotel.errors[:ciudad_id].any? %>
+                    <div>
+                        <%= @hotel.errors[:ciudad_id].first %>
+                    </div>
+                <% end %>
             </div>
 
             <%= formulario.submit "Crear" %>
@@ -800,6 +805,7 @@ Cosas deseables del software serían las siguientes:
             if @hotel.save
                 # redirect_to hoteles_path # listar hoteles
             else
+                @ciudades = Ciudad.all
                 render :nuevo
             end
         end
@@ -811,6 +817,12 @@ Cosas deseables del software serían las siguientes:
         ```
 
     1.4.2. Listar los hoteles registrados
+
+      - [x] Definir la ruta
+      - [x] Tener el método que se hará cargo
+      - [x] La vista
+      - [x] Agregar al menu de navegación
+      - [ ] Agregar la lógica para mostrar hoteles en la vista
 
     1.4.3. Actualizar los hoteles registrados
 

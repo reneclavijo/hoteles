@@ -1,5 +1,10 @@
 class HotelesController < ApplicationController
 
+    # GET /hoteles
+    def listar
+        @hoteles = Hotel.all
+    end
+
     # GET /hoteles/nuevo
     def nuevo
         @hotel = Hotel.new
@@ -12,6 +17,7 @@ class HotelesController < ApplicationController
         if @hotel.save
             # redirect_to hoteles_path # listar hoteles
         else
+            @ciudades = Ciudad.all
             render :nuevo
         end
     end

@@ -27,6 +27,11 @@
             options_from_collection_for_select(@ciudades, :id, :nombre, @hotel.ciudad_id),
             { include_blank: "Selecciona la ciudad del hotel" },
             class: 'form-select' %>
+        <% if @hotel.errors[:ciudad_id].any? %>
+            <div>
+                <%= @hotel.errors[:ciudad_id].first %>
+            </div>
+        <% end %>
     </div>
 
     <%= formulario.submit "Crear" %>

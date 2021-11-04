@@ -8,6 +8,21 @@
 
         <ul>
             <li class="separador mb-3 mt-3">
+                <strong>HOTELES</strong>
+            </li>
+            <li>
+                <%= link_to hoteles_path, class: "opcion" do %>
+                    <i class="bi bi-card-checklist"></i>
+                    Listar
+                <% end %>
+            </li>
+            <li>
+                <%= link_to nuevo_hotel_path, class: "opcion"  do %>
+                    <i class="bi bi-plus-circle"></i>
+                    Crear
+                <% end %>
+            </li>
+            <li class="separador mb-3 mt-3">
                 <strong>CIUDADES</strong>
             </li>
             <li>
