@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # Roles
   get 'roles',              to: 'roles#listar', as: 'roles'
   get 'roles/nuevo',        to: 'roles#nuevo',  as: 'nuevo_rol'
   get 'roles/:id/editar',   to: 'roles#editar', as: 'editar_rol'
@@ -16,4 +17,8 @@ Rails.application.routes.draw do
   post    'ciudades',       to: 'ciudades#guardar'
   patch   'ciudades/:id',   to: 'ciudades#actualizar', as: 'ciudad'
   delete  'ciudades/:id',   to: 'ciudades#eliminar'
+
+  # Hoteles
+  get   'hoteles/nuevo', to: 'hoteles#nuevo', as: 'nuevo_hotel'
+
 end

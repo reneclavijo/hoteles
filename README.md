@@ -14,7 +14,7 @@ Cosas deseables del software serían las siguientes:
 
 ## Funcionalidades
 
-1. Registrar Hoteles
+1. Registrar Hoteles (CRUD)
 
    1.1. ✅ Registrar al menos una ciudad (CRUD Completo de ciudades)
 
@@ -713,11 +713,22 @@ Cosas deseables del software serían las siguientes:
 
     - [x] Llamar el parcial en la vista que quiera
 
-   1.4. Formulario que me permita introducir los datos del hotel con 1 ciudad registrada en la BD
+   1.4. CRUD Hoteles
 
+    1.4.1. Crear un Hotel con un ciudad
+
+      - [x] La ruta para mostrar el formulario
+      - [x] El controlador con el método
+      - [x] La vista para mostrar el formulario
       - [ ] Consultar todas las ciudades de la BD
       - [ ] Diseñar el formulario para el registro de hotel (¿qué componentes necesitamos?)
       - [ ] Implementar la lógica que me permita guardar los datos del hotel con una ciudad
+
+    1.4.2. Listar los hoteles registrados
+
+    1.4.3. Actualizar los hoteles registrados
+
+    1.4.4. Eliminar un hotel registrado
 
 2. Registrar Habitaciones
 3. Buscar hoteles (por nombre) 🔁
