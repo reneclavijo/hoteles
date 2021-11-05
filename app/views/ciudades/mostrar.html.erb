@@ -1,0 +1,32 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <h5>
+            <%= @ciudad.nombre %>
+        </h5>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <% if @ciudad.hoteles.any? %>
+            <table class="table">
+                <% @ciudad.hoteles.each do |h| %>
+                    <tr>
+                        <td> <%= h.nombre %> </td>
+                        <td>
+                            <% h.estrellas.to_i.times do |e| %>
+                            ⭐
+                            <% end %>
+                        </td>
+                        <td>
+                            Habitaciones <%= h.habitaciones.count %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        <% else %>
+            SIN HOTELES REGISTRADOS
+            <%= link_to "Registrar hotel", nuevo_hotel_con_ciudad_path(@ciudad), class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+</div>

@@ -16,7 +16,7 @@
                         <%= c.id %>
                     </td>            
                     <td class="text-center">
-                        <%= c.nombre %>
+                        <%= link_to c.nombre, ciudad_path(c) %>
                     </td>
                     <td class="text-center">
                         <%= link_to "Editar", editar_ciudad_path(c), class: "btn btn-warning boton-redondeado" %> <!-- /ciudades/4/editar -->

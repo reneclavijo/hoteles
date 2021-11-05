@@ -12,6 +12,10 @@ class HotelesController < ApplicationController
         @hotel = Hotel.new
         @ciudades = Ciudad.all
         @texto = "Crear hotel"
+
+        if params[:id_ciudad]
+            @hotel.ciudad_id = params[:id_ciudad]
+        end
     end
 
     # GET /hoteles/:id/editar

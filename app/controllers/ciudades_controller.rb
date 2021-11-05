@@ -1,6 +1,6 @@
 class CiudadesController < ApplicationController
 
-    before_action :asignar_ciudad, only: [:editar, :actualizar, :eliminar]
+    before_action :asignar_ciudad, only: [:mostrar, :editar, :actualizar, :eliminar]
 
     # GET /ciudades
     def listar
@@ -10,6 +10,10 @@ class CiudadesController < ApplicationController
     # GET /ciudades/nuevo
     def mostrar_formulario_crear
         @ciudad = Ciudad.new
+    end
+
+    # GET /ciudades/:id
+    def mostrar
     end
 
     # GET /ciudades/:id/editar
