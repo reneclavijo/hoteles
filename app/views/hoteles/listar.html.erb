@@ -3,6 +3,13 @@
 <div class="card">
     <div class="card-body">
         <table class="table table-hover">
+            <tr>
+                <th class="text-center">Id</th>
+                <th>Nombre</th>
+                <th>Estrellas</th>
+                <th>Ciudad</th>                
+                <th class="text-center">Acciones</th>                
+            </tr>
             <% @hoteles.each do |h| %>
                 <tr>
                     <td class="text-center">
@@ -21,7 +28,10 @@
                     </td>
                     <td class="text-center">
                         <%= link_to "Editar", editar_hotel_path(h), class: 'btn btn-warning' %>
-                        Eliminar
+                        <%= link_to "Eliminar", hotel_path(h), 
+                        method: :delete, 
+                        class: 'btn btn-danger',
+                        data: { confirm: "¿Está seguro que quiere eliminar el hotel?" } %>
                     </td>
                 </tr>
             <% end %>

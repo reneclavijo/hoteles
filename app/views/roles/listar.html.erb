@@ -14,7 +14,7 @@
         <td><%= rol.rol %></td>
         <td>
             <%= link_to "Editar", editar_rol_path(rol) %>
-            <%= link_to "Eliminar", rol_path(rol), method: :delete %>
+            <%= link_to "Eliminar", rol_path(rol), method: :delete, data: { confirm: "¿Está seguro que quiere eliminar este rol?" } %>
         </td>
     </tr>
 <% end %>

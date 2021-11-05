@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
   post 'hoteles', to: 'hoteles#guardar'
   patch 'hoteles/:id',      to: 'hoteles#actualizar', as: 'hotel'
+  delete 'hoteles/:id', to: 'hoteles#eliminar'
 
 end

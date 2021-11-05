@@ -15,7 +15,10 @@
                     </td>
                     <td class="text-center">
                         <%= link_to "Editar", editar_ciudad_path(c), class: "btn btn-warning boton-redondeado" %> <!-- /ciudades/4/editar -->
-                        <%= link_to "Eliminar", ciudad_path(c), method: :delete, class: "btn btn-danger" %>
+                        <%= link_to "Eliminar", ciudad_path(c), 
+                        method: :delete, 
+                        class: "btn btn-danger",
+                        data: { confirm: "¿Está seguro que quiere eliminar la ciudad?" } %>
                     </td>
                 </tr>
             <% end %>

@@ -829,10 +829,20 @@ Cosas deseables del software serían las siguientes:
       - [x] Definir la ruta
       - [x] Definir el método *editar* que se hará cargo
       - [x] Crear la vista
-      - [ ] Convertir a botón el texto Editar en *listar.html.erb*
-      - [ ] Agregar la lógica para actualizar el hotel
+      - [x] Convertir a botón el texto Editar en *listar.html.erb*
+      - [x] Agregar la lógica para actualizar el hotel
 
     1.4.4. Eliminar un hotel registrado
+
+      - [x] Definir la ruta
+      - [ ] Agregar el botón
+      - [ ] Agregar la pregunta
+      - [ ] Agregar la lógica para eliminar un hotel
+
+    CALLBACKS
+
+    - [ ] Experimentar para ver cómo se comportan los callbacks
+    - [ ] Implementar un callback que normalice los nombres de los registros
 
 2. Registrar Habitaciones
 3. Buscar hoteles (por nombre) 🔁
