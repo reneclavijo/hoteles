@@ -835,16 +835,26 @@ Cosas deseables del software serían las siguientes:
     1.4.4. Eliminar un hotel registrado
 
       - [x] Definir la ruta
-      - [ ] Agregar el botón
-      - [ ] Agregar la pregunta
-      - [ ] Agregar la lógica para eliminar un hotel
+      - [x] Agregar el botón
+      - [x] Agregar la pregunta
+      - [x] Agregar la lógica para eliminar un hotel
 
     CALLBACKS
 
-    - [ ] Experimentar para ver cómo se comportan los callbacks
-    - [ ] Implementar un callback que normalice los nombres de los registros
+      - [x] Experimentar para ver cómo se comportan los callbacks
+      - [x] Implementar un callback que normalice los nombres de los registros
+
+    RESCUE
+
+      - [x] Capturar errores en los métodos utilizando rescue
 
 2. Registrar Habitaciones
+
+    2.1. Crear habitaciones
+    2.2. Consultar/Listar habitaciones
+    2.3. Actualizar habitaciones
+    2.4. Eliminar
+
 3. Buscar hoteles (por nombre) 🔁
 4. Reservar una habitación
 

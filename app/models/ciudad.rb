@@ -1,5 +1,5 @@
 class Ciudad < ApplicationRecord
-    before_validation   :antes_de_validar
+    before_validation   :capitalizar_nombre
     after_validation    :despues_de_validar
     before_save         :antes_de_guardar
     after_save          :despues_de_guardar
@@ -7,13 +7,14 @@ class Ciudad < ApplicationRecord
     before_destroy      :antes_de_destuir
     after_destroy       :despues_de_destruir
 
-    has_many :hoteles # una ciudad tiene muchos hoteles
+    # has_many :hoteles, dependent: :destroy    # elimina todas los hoteles de una ciudad
+    has_many :hoteles                           # una ciudad tiene muchos hoteles
 
     validates :nombre, presence: true
     validates :nombre, uniqueness: true
 
     private
-    def antes_de_validar
+    def capitalizar_nombre
         self.nombre = self.nombre.split(" ").map(&:capitalize).join(" ")
         puts "ANTES DE VALIDAR 🍕"
     end

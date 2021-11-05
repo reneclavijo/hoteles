@@ -1,6 +1,11 @@
 <h5 class="mb-3">
     <b>Lista de ciudades</b>
 </h5>
+<% if flash[:error_ciudad] %>
+    <div class="alert alert-warning" role="alert">
+        <%= flash[:error_ciudad] %>
+    </div>
+<% end %>
 <div class="card">
     <div class="card-body">
 
