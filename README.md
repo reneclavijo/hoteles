@@ -886,9 +886,9 @@ Cosas deseables del software serían las siguientes:
 
     3.4. Definir el método que se hará cargo de la lógica
 
-       - [ ] En la vista colocar un *input* para escribir el nombre de ciudad/hotel
-       - [ ] Analizar la lógica para mostrar el resultado
-       - [ ] Definir las tarjetas donde se mostrará el resultado
+     - [x] En la vista colocar un *input* para escribir el nombre de ciudad/hotel
+     - [x] Analizar la lógica para mostrar el resultado
+     - [ ] Definir las tarjetas donde se mostrará el resultado
 
 4. Reservar una habitación
 

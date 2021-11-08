@@ -15,3 +15,18 @@
     
     <% end %>
 </div>
+
+<h3>Hoteles </h3>
+<div class="row">
+    <% @hoteles_encontrados.each do |he| %>
+        <%= he.nombre %>
+        <br>
+    <% end %>
+</div>
+<h3>Ciudades</h3>
+<div class="row">
+    <% @ciudades_encontradas.each do |ce| %>
+        <%= ce.nombre %>
+        <br>
+    <% end %>
+</div>
