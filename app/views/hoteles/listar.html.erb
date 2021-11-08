@@ -1,5 +1,9 @@
 <h5 class="mb-3"><b>Lista de hoteles</b></h5>
-
+<% if flash[:error_hotel] %>
+    <div class="alert alert-warning" role="alert">
+        <%= flash[:error_hotel] %>
+    </div>
+<% end %>
 <div class="card">
     <div class="card-body">
         <table class="table table-hover">

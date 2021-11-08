@@ -14,7 +14,7 @@ Cosas deseables del software serían las siguientes:
 
 ## Funcionalidades
 
-1. Registrar Hoteles (CRUD)
+1. Registrar Hoteles (CRUD) ✅
 
    1.1. ✅ Registrar al menos una ciudad (CRUD Completo de ciudades)
 
@@ -848,14 +848,38 @@ Cosas deseables del software serían las siguientes:
 
       - [x] Capturar errores en los métodos utilizando rescue
 
-2. Registrar Habitaciones
+2. Registrar Habitaciones ✅
 
-    2.1. Crear habitaciones
-    2.2. Consultar/Listar habitaciones
+    2.1. Crear habitaciones ✅
+    2.2. Consultar/Listar habitaciones ✅
     2.3. Actualizar habitaciones
-    2.4. Eliminar
+    2.4. Eliminar ✅
 
 3. Buscar hoteles (por nombre) 🔁
+
+    3.1. Diseñar un wireframe
+
+     - [x] Encontrar una referencia
+     - [x] Diseñar un wireframe
+
+    3.2. Configurar las rutas
+
+     - [x] Definir una ruta para la vista principal
+
+        ```ruby
+        # config/routes.rb
+        # Principal
+        root 'paginas#principal'
+        ```
+
+    3.3. Definir el controlador que se hará cargo de la vista
+
+     - [x] Crear el archivo `paginas_controller.rb`
+     - [x] Definir el método `principal`
+     - [x] Crear el archivo en `app/views/paginas/principal.html.erb`
+
+    3.4. Definir el método que se hará cargo de la lógica
+
 4. Reservar una habitación
 
 ### Opcionales

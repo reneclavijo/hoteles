@@ -1,0 +1,29 @@
+<h1>Habitaciones</h1>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th class="text-center">Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Esta Reservada</th>                
+                <th>Hotel</th>
+                <th class="text-center">Acciones</th>                
+            </tr>
+            <% @habitaciones.each do |h| %>
+            <tr>
+                <td class="text-center"> <%= h.id %> </td>
+                <td> <%= h.nombre %> </td>
+                <td> <%= h.precio %> </td>
+                <td> <%= h.esta_reservada %> </td>
+                <td> <%= h.hotel.nombre %> </td>
+                <td class="text-center"> 
+                    <%= link_to "Editar", editar_habitacion_path(h), class: 'btn btn-warning' %> 
+                    <%= link_to "Eliminar", habitacion_path(h), class: 'btn btn-danger', method: :delete, data: {confirm: "¿Está seguro que quiere eliminar la habitación? "} %> 
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</div>

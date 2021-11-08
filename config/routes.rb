@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # Principal
+  root 'paginas#principal'
+
+
   # Roles
   get 'roles',              to: 'roles#listar', as: 'roles'
   get 'roles/nuevo',        to: 'roles#nuevo',  as: 'nuevo_rol'
@@ -24,10 +28,21 @@ Rails.application.routes.draw do
   get 'hoteles',                      to: 'hoteles#listar', as: 'hoteles'
   get 'hoteles/nuevo',                to: 'hoteles#nuevo',  as: 'nuevo_hotel'
   get 'hoteles/nuevo/:id_ciudad',     to: 'hoteles#nuevo',  as: 'nuevo_hotel_con_ciudad'
-  get 'hoteles/:id/editar',  to: 'hoteles#editar', as: 'editar_hotel'
+  get 'hoteles/:id/editar',           to: 'hoteles#editar', as: 'editar_hotel'
 
-  post 'hoteles', to: 'hoteles#guardar'
-  patch 'hoteles/:id',      to: 'hoteles#actualizar', as: 'hotel'
-  delete 'hoteles/:id', to: 'hoteles#eliminar'
+  post    'hoteles',        to: 'hoteles#guardar'
+  patch   'hoteles/:id',    to: 'hoteles#actualizar', as: 'hotel'
+  delete  'hoteles/:id',    to: 'hoteles#eliminar'
 
+  # Habitaciones
+
+  get 'habitaciones',             to: 'habitaciones#listar',  as: 'habitaciones'
+  get 'habitaciones/nueva',       to: 'habitaciones#nueva',   as: 'nueva_habitacion'
+  get 'habitaciones/:id',         to: 'habitaciones#mostrar', as: 'habitacion' # Mostrar la info de 1 habitación
+  get 'habitaciones/:id/editar',  to: 'habitaciones#editar',  as: 'editar_habitacion'
+
+  post    'habitaciones',            to: 'habitaciones#guardar'
+  put     'habitaciones/:id',        to: 'habitaciones#editar' # Hace lo mismo que el PATCH 
+  patch   'habitaciones/:id',        to: 'habitaciones#editar' 
+  delete  'habitaciones/:id',        to: 'habitaciones#eliminar'
 end
