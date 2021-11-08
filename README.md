@@ -878,7 +878,17 @@ Cosas deseables del software serían las siguientes:
      - [x] Definir el método `principal`
      - [x] Crear el archivo en `app/views/paginas/principal.html.erb`
 
+        3.3.1. Crear un layout específico para los clientes
+
+          - [x] Crear el archivo en la carpeta de *app/views/layouts/layout_cliente.html.erb*
+          - [x] Definir en el controlador el layout a utilizar
+          - [x] Definir la estructura HTML del nuevo layout
+
     3.4. Definir el método que se hará cargo de la lógica
+
+       - [ ] En la vista colocar un *input* para escribir el nombre de ciudad/hotel
+       - [ ] Analizar la lógica para mostrar el resultado
+       - [ ] Definir las tarjetas donde se mostrará el resultado
 
 4. Reservar una habitación
 
