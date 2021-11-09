@@ -890,6 +890,26 @@ Cosas deseables del software serían las siguientes:
      - [x] Analizar la lógica para mostrar el resultado
      - [ ] Definir las tarjetas donde se mostrará el resultado
 
+       - [x] Crear un archivo nuevo que se llame *_tarjeta.html.erb* en la carpeta *app/views/paginas*
+       - [x] Definir una ruta para mostrar la información de 1 solo hotel
+
+       ```ruby
+       #config/routes.rb
+        get   'paginas/:id_hotel', to: 'paginas#info_hotel', as: 'info_hotel'
+       ```
+
+       - [x] Definir el método que  mostrará la vista en el controlador de páginas
+
+       ```ruby
+       
+        # GET /paginas/:id_hotel
+        def info_hotel
+            
+        end
+       ```
+
+       - [x] Crear el archivo *info_hotel.html.erb* para mostrar la información detallada del hotel
+
 4. Reservar una habitación
 
 ### Opcionales

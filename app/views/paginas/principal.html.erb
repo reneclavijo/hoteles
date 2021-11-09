@@ -19,14 +19,17 @@
 <h3>Hoteles </h3>
 <div class="row">
     <% @hoteles_encontrados.each do |he| %>
-        <%= he.nombre %>
-        <br>
+        <%= link_to info_hotel_path(he), class: "w-25 m-3 text-decoration-none" do %>
+            <%= render "tarjeta", p_titulo: he.nombre, p_subtitulo: he.ciudad.nombre %>
+        <% end %>
     <% end %>
 </div>
+
 <h3>Ciudades</h3>
 <div class="row">
     <% @ciudades_encontradas.each do |ce| %>
-        <%= ce.nombre %>
-        <br>
+        <%= link_to "#", class: "w-25 m-3 text-decoration-none" do %>
+            <%= render "tarjeta", p_titulo: ce.nombre, p_subtitulo: "" %>
+        <% end %>
     <% end %>
 </div>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   # Principal
-  root 'paginas#principal'
+  root  'paginas#principal'
+  get   'paginas/:id_hotel', to: 'paginas#info_hotel', as: 'info_hotel'
+
 
 
   # Roles

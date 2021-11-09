@@ -18,9 +18,17 @@ class PaginasController < ApplicationController
                 c.nombre.downcase.include? params[:busqueda].downcase
             end
         end
-
     end
-    
-    
+
+    # GET /paginas/:id_hotel
+    def info_hotel
+        # recuperar el :id_hotel que llega desde los params
+        id = params[:id_hotel]
+        # buscar el hotel utilizando el modelo Hotel
+        @hotel_encontrado = Hotel.find(id) # el método find() busca por el id de una tabla
+    # controlar si el ID no existe
+    rescue
+        redirect_to root_path
+    end
     
 end
