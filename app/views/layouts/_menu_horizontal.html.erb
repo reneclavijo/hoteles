@@ -2,25 +2,25 @@
     <div class="container">
         <div class="row w-100 pt-4 pb-4">
     
-            <div class="col-lg-2 col-md-12 text-white mb-1">
+            <div class="col-2 text-white mb-1">
                 <%= link_to "HCampestre🌴", root_path, class: 'text-decoration-none text-white fs-3'%>
             </div>
             
-            <div class="col-lg-8 col-md-12">
+            <div class="col text-center">
             
                 <%= form_with(url: "/", method: "get", class: 'row') do |formulario| %>
             
-                    <div class="col-lg-8 col-md-12 text-start mb-1">
+                    <div class="col text-center mb-1">
                         <%= formulario.text_field :busqueda, class: 'form-control', placeholder: "Buscar: hotel o ciudad" %>
                     </div>
-                    <div class="col-lg-4 col-md-12 text-start mb-1"> 
+                    <div class="col text-center mb-1"> 
                         <%= formulario.submit "Buscar", class: 'btn btn-secondary text-white' %>
                     </div>
                 
                 <% end %>
             </div>
 
-            <div class="col-lg-2">
+            <div class="col-2 text-end">
                 <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
             </div>
         
