@@ -1,25 +1,7 @@
-<div class="row mt-5">
-    
-    <div class="col-lg-2">
-        <h3>HCampestre 🌴</h3>
-    </div>
-
-    <%= form_with(url: "/", method: "get") do |formulario| %>
-
-        <div class="col-lg-6 mb-3">
-            <%= formulario.text_field :busqueda, class: 'form-control' %>
-        </div>
-        <div class="col-2"> 
-            <%= formulario.submit "Buscar", class: 'btn btn-primary' %>
-        </div>
-    
-    <% end %>
-</div>
-
 <h3>Hoteles </h3>
-<div class="row">
+<div class="row row-cols-1 row-cols-md-3">
     <% @hoteles_encontrados.each do |he| %>
-        <%= link_to info_hotel_path(he), class: "w-25 m-3 text-decoration-none" do %>
+        <%= link_to info_hotel_path(he), class: "col text-decoration-none p-3" do %>
             <%= render "tarjeta", p_titulo: he.nombre, p_subtitulo: he.ciudad.nombre %>
         <% end %>
     <% end %>

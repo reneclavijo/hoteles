@@ -915,5 +915,13 @@ Cosas deseables del software serían las siguientes:
 ### Opcionales
 
 1. Iniciar sesión
+
+   - [ ] Un botón que nos envíe al formulario para registrarnos
+   - [ ] Definir una ruta que permita mostrar el formulario de registro
+   - [ ] Definir un controlador y método que se haga cargo del formulario
+   - [ ] Crear el archivo de la vista con el formulario
+   - [ ] Definir un método para la lógica de registro de usuario
+   - [ ] Definir un método para la lógica de iniciar sesión
+
 2. Tener vistas de administrador
 3. Buscador de hoteles por nombre en la página principal 🔁

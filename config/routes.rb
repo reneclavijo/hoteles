@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # Principal
   root  'paginas#principal'
   get   'paginas/:id_hotel', to: 'paginas#info_hotel', as: 'info_hotel'
+  get   'registro',         to: 'paginas#registro', as: 'registro'
 
+  # Registros
+  post 'usuarios',      to: 'registros#guardar',  as: 'usuarios'
 
 
   # Roles

@@ -3,7 +3,8 @@ class PaginasController < ApplicationController
     layout 'layout_cliente' # Definiendo el layout a utilizar
 
     def principal
-        @hoteles_encontrados = Hotel.all
+        
+        @hoteles_encontrados = Hotel.all.shuffle
         @ciudades_encontradas = Ciudad.all
 
         if params[:busqueda]
@@ -29,6 +30,10 @@ class PaginasController < ApplicationController
     # controlar si el ID no existe
     rescue
         redirect_to root_path
+    end
+
+    def registro
+        @usuario = Usuario.new
     end
     
 end
