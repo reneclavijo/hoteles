@@ -33,7 +33,7 @@ class PaginasController < ApplicationController
     end
 
     def registro
-        @usuario = Usuario.new
+        
     end
     
 end

@@ -1,8 +1,11 @@
 class RegistrosController < ApplicationController
 
-    
-    
-    
+    layout 'layout_cliente'
+
+    # GET /registro
+    def nuevo
+        @usuario = Usuario.new
+    end    
     
     # POST /registros
     def guardar
