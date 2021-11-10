@@ -941,7 +941,9 @@ Cosas deseables del software serían las siguientes:
 
    - [x] Crear el archivo de la vista con el formulario
 
-   - [ ] Definir un método para la lógica de registro de usuario
+   - [x] Definir un método para la lógica de registro de usuario
+
+   - [ ] Corregir el error de ruta al momento de tener problemas en el formulario de registro de usuario
 
    - [ ] Definir un método para la lógica de iniciar sesión
 

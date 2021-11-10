@@ -21,7 +21,11 @@
             </div>
 
             <div class="col-2 text-end">
-                <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
+                <% if @usuario %>
+                    <%= link_to "👦 #{@usuario.nombre}", "#", class: 'btn btn-primary text-white' %>
+                <% else %>
+                    <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
+                <% end %>
             </div>
         
         </div>        
