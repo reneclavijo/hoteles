@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get   'registro',         to: 'paginas#registro', as: 'registro'
 
   # Registros
-  post 'usuarios',      to: 'registros#guardar',  as: 'usuarios'
+  post 'usuarios',      to: 'registros#guardar',  as: 'usuarios' # crear usuarios normales
 
 
   # Roles

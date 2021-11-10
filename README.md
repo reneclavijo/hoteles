@@ -916,11 +916,33 @@ Cosas deseables del software serían las siguientes:
 
 1. Iniciar sesión
 
-   - [ ] Un botón que nos envíe al formulario para registrarnos
-   - [ ] Definir una ruta que permita mostrar el formulario de registro
-   - [ ] Definir un controlador y método que se haga cargo del formulario
-   - [ ] Crear el archivo de la vista con el formulario
+   - [x] Un botón que nos envíe al formulario para registrarnos
+   - [x] Instalar la gema *bcrypt* encargada de cifrar contraseñas e iniciar sesión
+   - [x] Agregar al modelo *Usuario.rb* el método de la gema bcrypt
+
+    ```ruby
+    class Usuario < ApplicationRecord
+        has_secure_password
+
+        belongs_to :rol # un usuario pertenece a un rol
+        has_many :reservas # un usuario tiene muchas reservas
+        has_many :habitaciones, through: :reservas # un usuario tiene muchas habitaciones a través de reservas
+        
+        validates :nombre,          presence: true
+        validates :identificacion,  presence: true, uniqueness: true
+        validates :telefono,        presence: true
+        validates :rol_id,          presence: true
+    end
+    ```
+
+   - [x] Definir una ruta que permita mostrar el formulario de registro
+
+   - [x] Definir un controlador y método que se haga cargo del formulario
+
+   - [x] Crear el archivo de la vista con el formulario
+
    - [ ] Definir un método para la lógica de registro de usuario
+
    - [ ] Definir un método para la lógica de iniciar sesión
 
 2. Tener vistas de administrador
