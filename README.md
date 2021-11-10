@@ -912,6 +912,20 @@ Cosas deseables del software serían las siguientes:
 
 4. Reservar una habitación
 
+    - [x] Analizar la BD
+
+    - [x] Wireframe del formulario que necesitamos
+
+    - [x] Definir la ruta que va a tener el formulario para la reserva
+
+    - [x] Convertir las tarjeta en links
+
+    - [x] Crear el controlador *reservas_controller.rb* para definir el método que controle la vista
+
+    - [x] Crear la vista en la carpeta de *app/views/reservas*
+
+    - [ ] Definir un método que capture y realice la lógica para almacenar una reserva
+
 ### Opcionales
 
 1. Iniciar sesión

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get   'registro',     to: 'registros#nuevo',    as: 'registro'
   post  'usuarios',     to: 'registros#guardar',  as: 'usuarios' # crear usuarios normales
 
+  # Reservaciones
+  get   'reservas/:id_habitacion', to: 'reservas#nueva', as: 'reservas'
+
 
   # Roles
   get 'roles',              to: 'roles#listar', as: 'roles'
