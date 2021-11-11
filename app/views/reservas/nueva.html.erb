@@ -1,1 +1,51 @@
-AQUÍ VA EL FORMULARIO DE RESERVA
+<%= form_with() do |formulario| %>
+
+    <div class="pt-3">
+        <h4>Fechas</h4>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Llegada</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Salida</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h4>Habitación</h4>
+            <div class="card">
+                <div class="card-body">
+                    <h5><%= @habitacion.nombre %></h5>
+                    <h6><%= @habitacion.hotel.nombre %>, <%= @habitacion.hotel.ciudad.nombre %></h6>
+                    <div>
+                        <% @habitacion.hotel.estrellas.times do %>
+                        ⭐
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+                <h4>Huésped</h4>
+                <div class="card">
+                    <div class="card-body">
+                        <h5><%= @usuario.nombre %></h5>
+                        <h6>Tel <%= @usuario.telefono %> </h6>
+                        <h6>Id. <%= @usuario.identificacion %> </h6>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+
+        <input type="submit" value="Reservar por <%= @habitacion.precio %> CLP" class="btn btn-primary text-white">
+    </div>
+
+<% end %>
