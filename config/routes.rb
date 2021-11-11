@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Reservaciones
   get   'reservas/:id_habitacion', to: 'reservas#nueva', as: 'reservas'
+  post  'reservas/:id_habitacion', to:  'reservas#guardar'
 
 
   # Roles
