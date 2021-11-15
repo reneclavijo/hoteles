@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: hoteles
+  username: <%= Rails.application.credentials.db_production[:username] %>
+  password: <%= Rails.application.credentials.db_production[:password] %>
+  host: 127.0.0.1 # localhost  / representa a la máquina en AWS
+  port: 5432      # el puerto de postgres en la computadora de AWS
+  pool: 5
