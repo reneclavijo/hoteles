@@ -59,7 +59,7 @@ class HotelesController < ApplicationController
 
     private
     def params_hotel
-        return params.require(:hotel).permit(:nombre, :estrellas, :ciudad_id)
+        return params.require(:hotel).permit(:nombre, :estrellas, :ciudad_id, :foto_portada)
     end
 
     def asignar_hotel

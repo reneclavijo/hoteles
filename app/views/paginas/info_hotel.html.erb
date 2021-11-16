@@ -1,5 +1,9 @@
 <div class="row">
 
+    <% if @hotel_encontrado.foto_portada.attached? %>
+        <%= image_tag @hotel_encontrado.foto_portada %>
+    <% end %>
+
     <h2><%= @hotel_encontrado.nombre %></h2>
     <h5><%= @hotel_encontrado.ciudad.nombre %></h5>
     <div class="mt-3">

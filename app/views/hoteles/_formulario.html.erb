@@ -25,6 +25,10 @@
     </div>
 
     <div class="mb-3">
+        <%= formulario.file_field :foto_portada %>
+    </div>
+
+    <div class="mb-3">
         <%= formulario.label    :ciudad_id %>
         <%= formulario.select   :ciudad_id,
             options_from_collection_for_select(p_ciudades, :id, :nombre, p_hotel.ciudad_id),
