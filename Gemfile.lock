@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: 7427d6861d59636d84ec970ab29b8a5ff8bfa570
+  specs:
+    bcrypt (3.1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -62,7 +68,6 @@ GEM
       zeitwerk (~> 2.3)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
-    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
@@ -167,7 +172,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -199,7 +203,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
+  bcrypt!
   bootsnap (>= 1.4.4)
   byebug
   capistrano (~> 3.11)
@@ -213,7 +217,6 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

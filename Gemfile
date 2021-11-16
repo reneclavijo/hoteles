@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -55,3 +55,6 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 group :production do
   gem 'pg' #  Gema que instala y configura el adapter de POSTGRESQL
 end
+
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
