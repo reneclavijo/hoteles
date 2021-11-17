@@ -1,6 +1,9 @@
 class ReservasController < ApplicationController
 
     layout 'layout_cliente'
+    before_action :validar_sesion_dirigiendo_al_registro 
+    # CASO PARTICULAR
+    # Cuando NO exista la sesión debemos enviarlo a registrarse
     
     # GET /reservas/:id_habitacion
     def nueva
