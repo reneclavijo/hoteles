@@ -4,7 +4,7 @@ class PaginasController < ApplicationController
     before_action :validar_sesion_sin_redirigir
 
     def principal
-        
+
         @hoteles_encontrados = Hotel.all.shuffle
         @ciudades_encontradas = Ciudad.all
 

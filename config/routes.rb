@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   # Usuario
-  get 'usuarios/:id', to: 'usuarios#mostrar', as: 'usuario'
+  get 'perfil', to: 'usuarios#mostrar', as: 'usuario'
   
   # Principal
   root  'paginas#principal'
