@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  
+  # Usuario
+  get 'usuarios/:id', to: 'usuarios#mostrar', as: 'usuario'
+  
   # Principal
   root  'paginas#principal'
   get   'paginas/:id_hotel', to: 'paginas#info_hotel', as: 'info_hotel'
