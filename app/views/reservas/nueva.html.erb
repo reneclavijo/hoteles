@@ -1,3 +1,13 @@
+<% if @habitacion.fotos.attached? %>
+    <div class="row">
+        <% @habitacion.fotos.each do |foto| %>
+            <div class="col">
+                <%= image_tag foto, class: 'w-100' %>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+
 <%= form_with(model: @reserva) do |formulario| %>
 
     <div class="pt-3">

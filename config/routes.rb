@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   get 'habitaciones/:id/editar',  to: 'habitaciones#editar',  as: 'editar_habitacion'
 
   post    'habitaciones',            to: 'habitaciones#guardar'
-  put     'habitaciones/:id',        to: 'habitaciones#editar' # Hace lo mismo que el PATCH 
-  patch   'habitaciones/:id',        to: 'habitaciones#editar' 
+  put     'habitaciones/:id',        to: 'habitaciones#actualizar' # Hace lo mismo que el PATCH 
+  patch   'habitaciones/:id',        to: 'habitaciones#actualizar' 
   delete  'habitaciones/:id',        to: 'habitaciones#eliminar'
 end
