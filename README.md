@@ -962,4 +962,5 @@ Cosas deseables del software serían las siguientes:
    - [ ] Definir un método para la lógica de iniciar sesión
 
 2. Tener vistas de administrador
-3. Buscador de hoteles por nombre en la página principal 🔁
+
+3. [x] Buscador de hoteles por nombre en la página principal 🔁
