@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    
+
     def validar_sesion_sin_redirigir
         if session[:usuario_id]
             @usuario_actual = Usuario.find(session[:usuario_id])

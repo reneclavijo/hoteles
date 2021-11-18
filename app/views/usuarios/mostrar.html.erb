@@ -2,4 +2,10 @@
     Perfil de <%= @usuario_actual.nombre %>
 </h1>
 
+<% if flash[:actualizar_usuario] %>
+    <div class="alert alert-success" role="alert">
+        <%= flash[:actualizar_usuario] %>
+    </div>
+<% end %>
+
 <%= render "compartidos/formulario_usuario", p_usuario: @usuario_actual %>
