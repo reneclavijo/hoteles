@@ -7,7 +7,7 @@
 
             <div class="col text-center">
                 <%= form_with(url: "/", method: "get", class: 'row') do |formulario| %>
-                    <div class="col text-center mb-1">
+                    <div class="col-10 text-center mb-1">
                         <%= formulario.text_field :busqueda, class: 'form-control', placeholder: "Buscar: hotel o ciudad" %>
                     </div>
                     <div class="col text-center mb-1">
@@ -16,7 +16,7 @@
                 <% end %>
             </div>
 
-            <div class="col-2 text-end">
+            <div class="col-4 text-end">
                 <% if @usuario_actual %>
                     <div class="nav-item dropdown">
                         <%= link_to "👦 #{@usuario_actual.nombre}", "#", class: 'btn btn-primary text-white dropdown-toggle', id: 'navbarDropdown', role: 'button', 'data-bs-toggle':'dropdown', 'aria-expanded': false %>
@@ -26,12 +26,19 @@
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <%= link_to "Cerrar sesión", "#", method: :delete, class: 'dropdown-item' %>
+                                <%= link_to "Cerrar sesión", cerrar_sesion_path, method: :delete, class: 'dropdown-item' %>
                             </li>
                         </ul>
                     </div>
                 <% else %>
-                    <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
+                    <div class="row">
+                        <div class="col">
+                            <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
+                        </div>
+                        <div class="col">
+                            <%= link_to "🚪 Iniciar sesión", iniciar_sesion_path, class: 'btn btn-primary text-white' %>
+                        </div>
+                    </div>
                 <% end %>
             </div>
         </div>

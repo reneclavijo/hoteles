@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <div class="card w-50">
+        <div class="card-body">
+            <div class="card-title">
+                <h3>Iniciar Sesión</h3>
+            </div>
+            <%= form_with() do |formulario| %>
+                <div class="mb-3">
+                    <%= formulario.label :identificacion, class: 'form-label' %>
+                    <%= formulario.text_field :identificacion, class: 'form-control' %>
+                </div>
+                <div class="mb-3">
+                    <%= formulario.label :password, class: 'form-label' %>
+                    <%= formulario.password_field :password, class: 'form-control' %>
+                </div>
+                <%= formulario.submit "Iniciar Sesión", class: 'btn btn-primary text-white' %>
+            <% end %>
+
+        </div>
+    </div>
+</div>
