@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
 
     def validar_sesion_para_el_registro
         if session[:usuario_id]
+            @usuario_actual = Usuario.find(session[:usuario_id])
             redirect_to root_path
         else
             @usuario_actual = nil

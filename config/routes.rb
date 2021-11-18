@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   
   # Usuario
   get 'perfil', to: 'usuarios#mostrar', as: 'usuario'
-  get 'iniciar_sesion', to: 'usuarios#iniciar_sesion', as: 'iniciar_sesion'
+  
+  get   'iniciar_sesion', to: 'usuarios#iniciar_sesion', as: 'iniciar_sesion'
+  post  'iniciar_sesion', to: 'usuarios#crear_sesion'
+
   delete 'cerrar_sesion', to: 'usuarios#cerrar_sesion', as: 'cerrar_sesion'
   
   # Principal

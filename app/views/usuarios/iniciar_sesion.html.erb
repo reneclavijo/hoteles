@@ -3,6 +3,11 @@
         <div class="card-body">
             <div class="card-title">
                 <h3>Iniciar Sesión</h3>
+                <% if flash[:error_iniciar_sesion] %>
+                    <div class="alert alert-warning" role="alert">
+                        <%= flash[:error_iniciar_sesion] %>
+                    </div>
+                <% end %>
             </div>
             <%= form_with() do |formulario| %>
                 <div class="mb-3">
