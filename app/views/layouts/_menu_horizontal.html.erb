@@ -1,18 +1,16 @@
 <nav class="navbar navbar-light bg-primary fixed-top">
     <div class="container">
         <div class="row w-100 pt-4 pb-4">
-    
             <div class="col-2 text-white mb-1">
                 <%= link_to "HCampestre🌴", root_path, class: 'text-decoration-none text-white fs-3'%>
             </div>
-            
+
             <div class="col text-center">
-            
                 <%= form_with(url: "/", method: "get", class: 'row') do |formulario| %>
                     <div class="col text-center mb-1">
                         <%= formulario.text_field :busqueda, class: 'form-control', placeholder: "Buscar: hotel o ciudad" %>
                     </div>
-                    <div class="col text-center mb-1"> 
+                    <div class="col text-center mb-1">
                         <%= formulario.submit "Buscar", class: 'btn btn-secondary text-white' %>
                     </div>
                 <% end %>
@@ -20,7 +18,18 @@
 
             <div class="col-2 text-end">
                 <% if @usuario_actual %>
-                    <%= link_to "👦 #{@usuario_actual.nombre}", usuario_path, class: 'btn btn-primary text-white' %>
+                    <div class="nav-item dropdown">
+                        <%= link_to "👦 #{@usuario_actual.nombre}", "#", class: 'btn btn-primary text-white dropdown-toggle', id: 'navbarDropdown', role: 'button', 'data-bs-toggle':'dropdown', 'aria-expanded': false %>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <%= link_to "Ver el perfil", usuario_path, class: 'dropdown-item' %>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <%= link_to "Cerrar sesión", "#", method: :delete, class: 'dropdown-item' %>
+                            </li>
+                        </ul>
+                    </div>
                 <% else %>
                     <%= link_to "💻 Registrarse", registro_path, class: 'btn btn-primary text-white' %>
                 <% end %>
