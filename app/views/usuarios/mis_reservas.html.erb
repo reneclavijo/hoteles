@@ -1,37 +1,4 @@
-<div class="card">
-    <div class="card-body">    
-        <div class="row">
-            <div class="col-4 bg-secondary">
-                <!-- Cargar la foto de la habitación -->
-            </div>
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-7">
-                        <h2><b>Hotel Dann</b></h2>
-                        <span class="text-muted">Bogotá</span>
-                    </div>
-                    <div class="col-5">
-                        <p>Código <b>CFD980</b></p>
-                        <p class="fs-3">CLP 50.000</p>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <h3><b>Habitación</b></h3>
-                        <span>Dog</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <p><b>Fecha Ingreso</b></p>
-                        <span>20/11/2021</span>
-                    </div>
-                    <div class="col-3">
-                        <p><b>Fecha Salida</b></p>
-                        <span>29/11/2021</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<h2>Mis reservas</h2>
+<% @usuario_actual.reservas.each do |r| %>
+    <%= render "tarjeta_reserva", p_reserva: r %>
+<% end %>

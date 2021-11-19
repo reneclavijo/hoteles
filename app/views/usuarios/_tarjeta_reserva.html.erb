@@ -1,0 +1,38 @@
+<!-- VARIABLES: p_reserva -->
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4 bg-secondary">
+                <!-- Cargar la foto de la habitación -->
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-7">
+                        <h2><b><%= p_reserva.habitacion.hotel.nombre %></b></h2>
+                        <span class="text-muted"><%= p_reserva.habitacion.hotel.ciudad.nombre %></span>
+                    </div>
+                    <div class="col-5">
+                        <p>Código <b><%= p_reserva.codigo %></b></p>
+                        <p class="fs-3"><%= p_reserva.habitacion.precio %></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <h3><b>Habitación</b></h3>
+                        <span><%= p_reserva.habitacion.nombre %></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <p><b>Fecha Ingreso</b></p>
+                        <span><%= p_reserva.fecha_ingreso %></span>
+                    </div>
+                    <div class="col-3">
+                        <p><b>Fecha Salida</b></p>
+                        <span><%= p_reserva.fecha_salida %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
