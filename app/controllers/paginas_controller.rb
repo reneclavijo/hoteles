@@ -5,8 +5,8 @@ class PaginasController < ApplicationController
 
     def principal
 
-        @hoteles_encontrados = Hotel.all.shuffle
-        @ciudades_encontradas = Ciudad.all
+        @hoteles_encontrados = Hotel.includes(:ciudad).shuffle
+        @ciudades_encontradas = Ciudad.includes(:hoteles)
 
         if params[:busqueda]
             # 1. Recuperando todos mis hoteles en la BD
