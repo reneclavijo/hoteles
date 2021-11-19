@@ -1,5 +1,6 @@
 class HotelesController < ApplicationController
-
+    
+    before_action :validar_sesion_administrador
     before_action :asignar_hotel, only: [:editar, :actualizar, :eliminar]
 
     # GET /hoteles
