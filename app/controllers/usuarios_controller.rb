@@ -1,10 +1,15 @@
 class UsuariosController < ApplicationController
   
   layout 'layout_cliente'
-  before_action :validar_sesion_dirigiendo_al_registro, only: [:mostrar, :cerrar_sesion, :actualizar]
+  before_action :validar_sesion_dirigiendo_al_registro, only: [:mis_reservas, :mostrar, :cerrar_sesion, :actualizar]
   before_action :validar_sesion_para_el_registro, only: [:iniciar_sesion]
 
   def mostrar
+  end
+
+  # GET /mis_reservas
+  def mis_reservas
+
   end
 
   # GET /iniciar_sesion

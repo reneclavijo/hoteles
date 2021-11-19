@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   
   # Usuario
-  get 'perfil', to: 'usuarios#mostrar', as: 'usuario'  
-  get   'iniciar_sesion', to: 'usuarios#iniciar_sesion', as: 'iniciar_sesion'
-  post  'iniciar_sesion', to: 'usuarios#crear_sesion'
-  patch 'perfil',         to: 'usuarios#actualizar'
-  delete 'cerrar_sesion', to: 'usuarios#cerrar_sesion', as: 'cerrar_sesion'
+  get     'perfil',         to: 'usuarios#mostrar', as: 'usuario'  
+  get     'iniciar_sesion', to: 'usuarios#iniciar_sesion', as: 'iniciar_sesion'
+  get     'mis_reservas',   to: 'usuarios#mis_reservas', as: 'mis_reservas'
+  post    'iniciar_sesion', to: 'usuarios#crear_sesion'
+  patch   'perfil',         to: 'usuarios#actualizar'
+  delete  'cerrar_sesion',  to: 'usuarios#cerrar_sesion', as: 'cerrar_sesion'
   
   # Principal
   root  'paginas#principal'
